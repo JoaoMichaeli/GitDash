@@ -1,30 +1,27 @@
 package br.com.fiap.gitdash.user;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.security.oauth2.core.user.OAuth2User;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Data
-@Table(name = "gituser")
-@NoArgsConstructor
 public class User {
+    private String login;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @JsonProperty("avatar_url")
+    private String avatarUrl;
+
+    @JsonProperty("html_url")
+    private String htmlUrl;
 
     private String name;
 
-    @Column(unique = true)
-    private String email;
+    public String getLogin() { return login; }
+    public void setLogin(String login) { this.login = login; }
 
-    private String avatarUrl;
+    public String getAvatarUrl() { return avatarUrl; }
+    public void setAvatarUrl(String avatarUrl) { this.avatarUrl = avatarUrl; }
 
-    public User(OAuth2User principal) {
-        this.name = principal.getAttributes().get("name").toString();
-        this.email = principal.getAttributes().get("email").toString();
-        this.avatarUrl = principal.getAttributes().get("avatar_url").toString();
-    }
+    public String getHtmlUrl() { return htmlUrl; }
+    public void setHtmlUrl(String htmlUrl) { this.htmlUrl = htmlUrl; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 }

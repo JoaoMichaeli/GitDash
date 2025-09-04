@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GitDashApplication {
+public class GitdashApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GitDashApplication.class, args);
+        SpringApplication.run(GitdashApplication.class, args);
     }
 
 }
